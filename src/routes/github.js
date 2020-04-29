@@ -47,6 +47,7 @@ const buildMsgEmbed = async req => {
 
     console.log(eventBody.sender)
 
+    return builder.setAuthor(eventBody.sender.login, eventBody.sender.avatar_url, eventBody.sender.html_url)
       .setAvatar('https://i.imgur.com/ngfp9X3.png')
       .setName('GitHub-Webhook')
       .setDescription(parseDescription(eventType, eventBody))
