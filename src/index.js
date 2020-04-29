@@ -24,6 +24,6 @@ server.get('/hello/:name', (req, res, next) => {
 
 server.head('/hello/:name', respond)
 
-server.listen(8080, () => {
+server.listen(4242, () => {
   console.log('%s listening at %s', server.name, server.url)
 })
