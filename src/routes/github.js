@@ -43,18 +43,48 @@ const buildMsgEmbed = async req => {
   try {
     const builder = new MessageBuilder()
     const eventType = getEventType(req)
-    const end = builder.setAuthor('GitHub', 'https://i.imgur.com/ngfp9X3.png', 'https://github.com/4lch4')
+    const eventBody = req.body
+
+    return builder.setAuthor(eventBody.sender.login | 'Unknown', eventBody.sender.avatar_url | 'Unknown', eventBody.sender.html_url | undefined)
       .setAvatar('https://i.imgur.com/ngfp9X3.png')
       .setName('GitHub-Webhook')
-      .setDescription(`A GH event has been generated: ${eventType}`)
-      .setTitle('A webhook has received a message from GitHub')
-
-    console.log(req)
-
-    return end
+      .setDescription(parseDescription(eventType, eventBody))
+      .setTitle(parseTitle(eventType, eventBody))
   } catch (err) {
     console.error(err)
     return err
+  }
+}
+
+const parseDescription = (eventType, reqBody) => {
+  switch (eventType) {
+    case 'push':
+      return reqBody.head_commit.message
+
+    default:
+      console.log(`eventType = ${eventType}`)
+      console.log(reqBody)
+      return 'Unknown'
+  }
+}
+
+/**
+ * Parses a title from the request body based on the data provided, and returns
+ * it as a String.
+ *
+ * @param {*} reqBody The body of the request from GH.
+ *
+ * @returns {String}
+ */
+const parseTitle = (eventType, reqBody) => {
+  switch (eventType) {
+    case 'push':
+      return `A commit has been pushed to ${reqBody.repository.name}`
+
+    default:
+      console.log(`eventType = ${eventType}`)
+      console.log(reqBody)
+      return 'Unknown'
   }
 }
 
