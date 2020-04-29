@@ -1,3 +1,4 @@
 module.exports = {
-  discord: require('./discord')
+  discord: require('./discord'),
+  github: require('./github')
 }

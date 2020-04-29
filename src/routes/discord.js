@@ -15,6 +15,14 @@ const sendMessageEmbed = async (req, res, next) => {
 }
 
 /**
+ * Sends a custom embed/MessageBuilder object to the primary Discord WH and
+ * returns the result via a promise.
+ *
+ * @param {MessageBuilder} embed The MessageBuilder/embed you wish to send.
+ */
+const sendCustomMessageEmbed = async embed => dHook.send(embed)
+
+/**
  * Builds a message to be sent via a Discord Webhook.
  *
  * @param {WebhookEmbed} msg The object containing the data to be sent in the embed.
@@ -54,7 +62,8 @@ const sanitizeEmbedInputs = embed => {
 }
 
 module.exports = {
-  sendMessageEmbed
+  sendMessageEmbed,
+  sendCustomMessageEmbed
 }
 
 /**
