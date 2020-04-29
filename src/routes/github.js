@@ -16,7 +16,7 @@ class GitHub {
    * @param {*} next
    */
   async getMethod (req, res, next) {
-    res.send(200, 'This endpoint has not been implemented or is currently under construction.')
+    res.send(200, "Are you sure you didn't mean to send a POST request instead?")
   }
 
   /**

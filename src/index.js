@@ -14,8 +14,10 @@ const respond = (req, res, next) => {
 }
 
 server.post('/discord', sendDiscordMessage)
+
 const GH = require('./routes').github
 server.post('/github', GH.postMethod)
+server.get('/github', GH.getMethod)
 
 server.get('/hello/:name', (req, res, next) => {
   res.send(200, req.params.name)
