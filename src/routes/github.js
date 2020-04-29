@@ -1,5 +1,6 @@
 const { sendCustomMessageEmbed } = require('./discord')
 const { MessageBuilder } = require('webhook-discord')
+const GWHW = require('@4lch4/gh-wh-to-discord')
 
 /**
  * Used for any Webhook that is set up with GitHub.
@@ -27,7 +28,7 @@ class GitHub {
    */
   async postMethod (req, res, next) {
     try {
-      const msgEmbed = await buildMsgEmbed(req)
+      const msgEmbed = GWHW.parse(req)
       const dhRes = await sendCustomMessageEmbed(msgEmbed)
       console.log(dhRes)
       res.send(200)
