@@ -81,7 +81,7 @@ const parseDescription = (eventType, reqBody) => {
 const parseTitle = (eventType, reqBody) => {
   switch (eventType) {
     case 'push':
-      return `A commit has been pushed to ${reqBody.repository.name}`
+      return `A commit has been pushed to [${reqBody.repository.name}](${reqBody.repository.html_url})`
 
     default:
       console.log(`eventType = ${eventType}`)
