@@ -1,0 +1,33 @@
+{
+  "name": "@4lch4/floo",
+  "version": "0.0.1",
+  "description": "A micro-service/API that will be used as the ingress/endpoint for any webhooks/integrations with my other services such as Discord or ADO or w/e.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/4lch4/"
+  },
+  "keywords": [
+    "webhook",
+    "webhooks",
+    "api",
+    "restify"
+  ],
+  "author": "4lch4 <hello@4lch4.com> (https://4lch4.com/)",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "nodemon": "^2.0.3",
+    "standard": "^14.3.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "morgan": "^1.10.0",
+    "node-config-manager": "^2.1.2",
+    "restify": "^8.5.1",
+    "webhook-discord": "^3.7.3"
+  }
+}
