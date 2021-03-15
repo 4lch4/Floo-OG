@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@4lch4/gh-wh-to-discord": "^0.0.2",
-    "@octokit/webhooks": "^7.4.0",
+    "@octokit/webhooks": "^8.5.4",
     "body-parser": "^1.19.0",
     "github-webhook-handler": "^1.0.0",
     "morgan": "^1.10.0",
