@@ -21,7 +21,7 @@
   "license": "BSD-2-Clause",
   "devDependencies": {
     "nodemon": "^2.0.3",
-    "standard": "^14.3.3"
+    "standard": "^16.0.4"
   },
   "dependencies": {
     "@4lch4/gh-wh-to-discord": "^0.0.2",
